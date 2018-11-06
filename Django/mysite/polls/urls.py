@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf.urls import url
 
 from . import views
+from .views import DetailView, IndexView, ResultsView
 
 app_name = 'polls' # register polls namespace
 urlpatterns = [
@@ -17,4 +18,7 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
+    path('IndexView', IndexView.as_view(), name='Index-View'),
+    path('DetailView', DetailView.as_view(), name='Detail-View'),
+    path('ResultsView', ResultsView.as_view(), name='Results-View'),
 ]
